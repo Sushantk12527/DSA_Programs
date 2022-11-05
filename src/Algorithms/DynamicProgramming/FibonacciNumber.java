@@ -52,16 +52,11 @@ public class FibonacciNumber {
     // space complexity - O(n)
     public static int fibM3(int n,int[] cache){
 
-        if(n<2){
-            return n;
-        }
-
-        if(cache[n]!=0){
-            return cache[n];
-        }
+      cache[0]=0;
+      cache[1]=1;
 
         for(int i=2;i<=n;i++){
-            cache[n]=fibM3(n-1,cache)+fibM3(n-2,cache);
+            cache[i]=cache[i-1]+cache[i-2];
         }
         return cache[n];
 

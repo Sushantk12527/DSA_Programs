@@ -13,6 +13,8 @@ public class FibonacciNumber {
 
         int[] cache3=new int[n+1];
         System.out.println(fibM3(n,cache3));
+
+        System.out.println(fibM4(n));
     }
 
     //Naive Approach
@@ -68,7 +70,7 @@ public class FibonacciNumber {
     //even more optimised
     // time complexity - O(n)
     // space complexity - O(1)
-    public static int fibM4(int n,int[] cache){
+    public static int fibM4(int n){
         if(n<2){
             return n;
         }

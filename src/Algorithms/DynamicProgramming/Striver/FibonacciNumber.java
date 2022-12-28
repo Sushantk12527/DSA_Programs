@@ -1,4 +1,4 @@
-package Algorithms.DynamicProgramming;
+package Algorithms.DynamicProgramming.Striver;
 
 public class FibonacciNumber {
     public static void main(String[] args) {

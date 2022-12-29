@@ -9,10 +9,35 @@ public class subsequence_and_subsets {
 //    printAllSubsequences(0,arr,ds,arr.length);
 //        printSubsequencesWithSumK(0,arr,ds,0,3,arr.length);
 //        System.out.println(countSubsequencesWithSumK(0,arr,0,3,arr.length));
-        printSubsequencesWithSumKMultiplePicksAllowed(0,arr,ds,0,3,arr.length);
+//        printSubsequencesWithSumKMultiplePicksAllowed(0,arr,ds,0,3,arr.length);
+
+        int[] arr1={1,1,1,2,2};
+        printSubsequencesWithSumKSinglePickAllowed(0,0,4,arr1,ds, arr1.length);
+
     }
 
 
+    //print all subsequences with sum=k. Every number can be picked once.Each subset should be lexiographically sorted and unique.
+    public static void printSubsequencesWithSumKSinglePickAllowed(int idx,int sum,int k, int[] arr, ArrayList<Integer> ds,int n){
+
+
+            if(sum==k){
+                System.out.println(ds);
+                return;
+            }
+
+        for(int i=idx;i<n;i++){
+            if(i>idx && arr[i]==arr[i-1]){
+                continue;
+            }
+            if(sum+arr[i]>k){
+                break;
+            }
+            ds.add(arr[i]);
+            printSubsequencesWithSumKSinglePickAllowed(i+1,sum+arr[i],k,arr,ds,n);
+            ds.remove(ds.size()-1);
+        }
+    }
 
     //print subsequeces whose sum is k. A single number can be counted multiple times.
     public static void printSubsequencesWithSumKMultiplePicksAllowed(int idx,int[] arr,ArrayList<Integer> ds, int sum,int k,int n){
